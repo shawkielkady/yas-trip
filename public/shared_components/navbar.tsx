@@ -1,15 +1,15 @@
 "use client";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
-
+import Link from "next/link";
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeTab, setActiveTab] = useState("الرئيسية");
 
   const navTabs = [
-    { name: "الرئيسية", href: "#" },
-    { name: "استكشف الوجهات", href: "#" },
-    { name: "رحلات ومغامرات", href: "#" },
+    { name: "الرئيسية", href: "/" },
+    { name: "استكشف الوجهات", href: "/products/all" },
+    { name: "رحلات ومغامرات", href: "/products/all" },
     { name: "حكايات السفر", href: "#" },
     { name: "شركات السفر", href: "#" },
   ];
@@ -20,7 +20,7 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-20">
           {/* 1. اللوجو (Logo) */}
           <div className="flex-shrink-0">
-            <a href="#" className="flex items-center gap-2">
+            <Link href="/" className="flex items-center gap-2">
               {/* شعار مؤقت بنفس طابع الموقع */}
               <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white font-bold text-xl shadow-md">
                 ر
@@ -29,15 +29,15 @@ export default function Navbar() {
                 رحالة{" "}
                 <span className="text-primary text-sm font-semibold">مصر</span>
               </span>
-            </a>
+            </Link>
           </div>
 
           {/* 2. التابس للشاشات الكبيرة (Desktop Navigation) */}
-          <nav className="hidden md:flex items-center gap-1 bg-bg-main p-1.5 rounded-full border border-gray-200/60">
+          {/* <nav className="hidden md:flex items-center gap-1 bg-bg-main p-1.5 rounded-full border border-gray-200/60">
             {navTabs.map((tab) => {
               const isActive = activeTab === tab.name;
               return (
-                <a
+                <Link
                   key={tab.name}
                   href={tab.href}
                   onClick={() => setActiveTab(tab.name)}
@@ -48,10 +48,10 @@ export default function Navbar() {
                   }`}
                 >
                   {tab.name}
-                </a>
+                </Link>
               );
             })}
-          </nav>
+          </nav> */}
 
           {/* 3. زر المنيو للموبايل (Mobile Menu Button) */}
           <div className="md:hidden flex items-center">
@@ -74,10 +74,10 @@ export default function Navbar() {
       {/* 4. القائمة المنسدلة للموبايل (Mobile Navigation Drawer) */}
       {isOpen && (
         <div className="md:hidden bg-surface border-b border-gray-100 px-4 pt-2 pb-6 space-y-2 animate-in slide-in-from-top duration-200">
-          {navTabs.map((tab) => {
+          {/* {navTabs.map((tab) => {
             const isActive = activeTab === tab.name;
             return (
-              <a
+              <Link
                 key={tab.name}
                 href={tab.href}
                 onClick={() => {
@@ -91,9 +91,9 @@ export default function Navbar() {
                 }`}
               >
                 {tab.name}
-              </a>
+              </Link>
             );
-          })}
+          })} */}
         </div>
       )}
     </header>
