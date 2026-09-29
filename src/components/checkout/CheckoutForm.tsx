@@ -3,6 +3,7 @@ import CustomInput from "@public/shared_components/CustomInput";
 import React, { useState } from "react";
 import { LockKeyhole } from "lucide-react";
 import CustomBtn from "@public/shared_components/CustomBtn";
+import { redirect } from "next/navigation";
 function CheckoutForm() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -81,7 +82,9 @@ function CheckoutForm() {
         <CustomBtn
           title="ارسال طلب الحجز"
           disabled={false}
-          onClick={() => {}}
+          onClick={() => {
+            redirect("/tracking");
+          }}
         />
       </form>
     </div>
